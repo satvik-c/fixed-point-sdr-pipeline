@@ -1,0 +1,10 @@
+# Build artifacts
+*.o
+*.a
+*.so
+
+# Executables
+test_fixed_point
+
+# Editor clutter
+.vscode/
