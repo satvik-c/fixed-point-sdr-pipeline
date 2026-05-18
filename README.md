@@ -8,6 +8,9 @@ Raw IQ samples come in from the dongle over USB, get filtered by a windowed-sinc
 
 ## Progress
 
-### Fixed-point math library (`lib/`)
-
-I implemented a Q1.15 arithmetic library that everything else in the project builds on. It covers saturating multiply, saturating add, multiply-accumulate with a 32-bit accumulator, absolute value, negate, and arithmetic right shift. All operations use 32-bit intermediates to avoid precision loss before truncating back to Q1.15. Everything is unit tested against floating-point reference values.
+- [X] Fixed-point math library (`lib/`) — Q1.15 arithmetic covering saturating multiply, saturating add, multiply-accumulate with a 32-bit accumulator, absolute value, negate, and arithmetic right shift. All operations use 32-bit intermediates to avoid precision loss before truncating back to Q1.15. Unit tested against floating-point reference values.
+- [X] IQ ingestion (`ingest/`) — reads raw 8-bit IQ samples from the RTL-SDR dongle via librtlsdr, converts to Q15, and writes to a binary file. Verified by plotting the FFT spectrum in Python (`/tools`) and confirming FM station peaks are visible at correct frequencies.
+- [ ] FIR low-pass filter
+- [ ] Decimation
+- [ ] FM demodulation (CORDIC atan2)
+- [ ] Fixed-point FFT
